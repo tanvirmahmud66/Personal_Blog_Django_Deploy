@@ -26,7 +26,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tanvirmahmud.debugandtest01@gmail.com'
 EMAIL_HOST_PASSWORD = 'xrtlfxebotdinfol'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

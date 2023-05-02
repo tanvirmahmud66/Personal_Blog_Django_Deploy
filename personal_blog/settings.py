@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,15 +84,19 @@ WSGI_APPLICATION = 'personal_blog.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'personal_blog_database',
+#         'USER': 'tanvirmahmud',
+#         'PASSWORD': '1821131',
+#         'HOST': 'localhost',  # Leave empty for localhost
+#         'PORT': '5432',  # Default port is 5432
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'personal_blog_database',
-        'USER': 'tanvirmahmud',
-        'PASSWORD': '1821131',
-        'HOST': 'localhost',  # Leave empty for localhost
-        'PORT': '5432',  # Default port is 5432
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 

@@ -1,0 +1,55 @@
+{%extends 'layout.html'%}
+{%load static%}
+{% load humanize %}
+{%block title%}Delete Post | Personal Blog{%endblock title%}
+{%block link%}
+<!-- css link here -->
+<link rel="stylesheet" href="{%static 'comment_post.css'%}"/>
+{%endblock link%}
+{%block navImg%}
+    {%if profile.profilePic%}
+        <img src="{{profile.profilePic.url}}" alt="Profile Pic" width="30">
+    {%endif%}
+{%endblock navImg%}
+{%block section%}
+<div class="wrapper">
+    <div class="warning">
+        <h4>Comment</h4>
+    </div>
+    <div class="post_view">
+        <h3>{{post.user.first_name}} {{post.user.last_name}}</h3>
+        <div class="date_time">
+            <p>
+                {{post.created| timesince}} ago
+            </p>
+            <p>
+                {{post.created.date}}
+            </p>
+        </div>
+        <div class="post_body">
+            <p>{{post.post}}</p>
+        </div>
+        <hr>
+        <div class="comment_section">
+            {%for each_comment in post_all_comment%}
+                {%if post.id == each_comment.postId%}
+                    <div class="each_comment">
+                        <p class="commenter_name"> @{{each_comment.commenter.first_name}} {{each_comment.commenter.last_name}}</p>
+                        <p class="comment">{{each_comment.comment}}</p>
+                    </div>   
+                {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+    <div class="edit_setion">
+        <form method="POST">
+            {%csrf_token%}
+            <textarea id="comment" name="comment" style="width: 100%; min-height: 50px;" placeholder="Comment here.."></textarea>
+            <div class="button_group">
+                <a class="btn-red" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+                <input class="btn" type="submit" value="Comment"/>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock section%}

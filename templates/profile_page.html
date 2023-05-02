@@ -1,0 +1,79 @@
+{%extends 'layout.html'%}
+{%load static%}
+{% load humanize %}
+{%block title%}Profile | Personal Blog{%endblock title%}
+{%block link%} 
+<link rel="stylesheet" href="{%static 'profile_page.css'%}"/>
+{%endblock link%}
+{%block navImg%}
+    {%if profile.profilePic%}
+        <img src="{{profile.profilePic.url}}" alt="Profile Pic" width="30">
+    {%endif%}
+{%endblock navImg%}
+{%block section%}
+<div class="wrapper">
+    <div class="profile_section">
+        <div class="profile_pic">
+            {%if profile.profilePic%}
+                <img src="{{profile.profilePic.url}}" alt="Profile Pic">
+            {%endif%}
+        </div>
+        <a class="pp_edit" href="{%url 'editpp'%}">Edit</a>
+        <h2>{{request.user.first_name}} {{request.user.last_name}}</h2>
+        <div class="bio_box">{{profile.bio}}</div>
+        <div class="about">
+            <h4>work as <span>{{profile.profession}}</span> at <span>{{profile.workplace}}</span></h4>
+            <h4>{{profile.relationStatus}}</h4>
+            <h4>From {{profile.area}}</h4>
+            <a class="edit-profile" href="{%url 'edit_profile'%}">Edit Profile</a>
+        </div>
+        
+    </div>
+    <div class="post_section">
+        <div class="post">
+            <form class="post_form" method="POST">
+                {%csrf_token%}
+                <textarea id="postInput" name="postInput" placeholder="Write your post..." required></textarea>
+                <input type="submit" class="post-green-btn" value="Post"/>
+            </form>
+        </div>
+        {%for each in posts%}
+        <div class="post">
+            <div class="post_view">
+                <h3>{{each.user.first_name}} {{each.user.last_name}}</h3>
+                <div class="date_time">
+                    <p>
+                        {{each.created| timesince}} ago
+                    </p>
+                    <p>
+                        {{each.created.date}}
+                    </p>
+                </div>
+                <div class="post_body">
+                    <p>{{each.post}}</p>
+                </div>
+                <div class="button_group">
+                    <a class="edit_button" href="{%url 'edit' each.id%}">Edit Post</a>
+                    <a class="delete_button" href="{%url 'delete' each.id%}">Delete Post</a>
+                </div>
+                <hr>
+                <div class="button_group">
+                    <a class="comment_button" href="{%url 'comment' each.id%}">Add Comment</a>
+                </div>
+                <div class="comment_section">
+                    {%for each_comment in post_comment%}
+                        {%if each.id == each_comment.postId%}
+                            <div class="each_comment">
+                                <p class="commenter_name"> @{{each_comment.commenter.first_name}} {{each_comment.commenter.last_name}}</p>
+                                <p class="comment">{{each_comment.comment}}</p>
+                            </div>   
+                        {%endif%}
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+{%endblock section%}

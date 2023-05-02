@@ -1,0 +1,86 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+	background-color: #061723;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #072432;
+    color: #fff;
+    padding: 10px;
+    z-index: 1;
+}
+
+.left-nav a {
+    text-decoration: none;
+    color: white;
+	margin: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.right-nav {
+	display: flex;
+	align-items: center;
+}
+
+.right-nav a {
+    text-decoration: none;
+}
+.name{
+    margin-right: 15px;
+}
+.right-nav h4{
+    font-size: 1rem;
+    color: white;
+    font-weight: 300;
+}
+
+.avatar {
+	width: 30px;
+	height: 30px;
+    overflow: hidden;
+	border-radius: 50%;
+	background-color: #515151;
+	margin-right: 10px;
+}
+
+
+
+.green-btn {
+    text-decoration: none;
+    border: 1px solid #00b894;
+	background-color: #00b894;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+    font-weight: 500;
+}
+
+.messages{
+    color: red;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.messages p{
+    margin-bottom: 20px;
+}

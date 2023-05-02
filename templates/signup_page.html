@@ -1,0 +1,36 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block title%}Sign Up | Personal Blog{%endblock title%}
+{%block link%} 
+<link rel="stylesheet" href="{%static 'signup.css'%}"/>
+{%endblock link%}
+
+{%block section%}
+<div class="signup-card">
+    <h2>Sign Up</h2>
+    {%if messages%}
+    <div class="messages">
+        {%for each in messages%}
+            <p>{{each}}</p>
+        {%endfor%}
+    </div>
+    {%endif%}
+    <form method="POST">
+        {%csrf_token%}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <button class="signup-green-btn">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{%url 'signin'%}">Sign in here</a></p>
+</div>
+{%endblock section%}

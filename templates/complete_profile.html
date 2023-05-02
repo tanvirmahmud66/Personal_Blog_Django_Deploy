@@ -1,0 +1,44 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block title%}Home | Personal Blog{%endblock title%}
+{%block link%} 
+    <link rel="stylesheet" href="{%static 'complete_profile.css'%}"/>
+{%endblock link%}
+
+{%block section%}
+<div class="wrapper">
+	<div class="card">
+		<h2>Complete Your Profile</h2>
+		<form method="POST">
+            {%csrf_token%}
+			<div class="inner_div">
+			    <input type="text" id="workplace" name="workplace" style="width: 80%;" placeholder="workplace">
+			    <input type="text" id="profession" name="profession" style="width: 80%;" placeholder="profession">
+            </div>
+            <div class="inner_div">
+                <select id="gender" name="gender" style="width: 80%;">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <select id="relationship" name="relationship" style="width: 80%;">
+                    <option value="" disabled selected>Select Relationship Status</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+			
+			<textarea id="bio" name="bio" style="width: 98%; height: 100px;" placeholder="Bio Data"></textarea>
+            <div class="inner_div">
+                <input type="text" id="district" name="district" style="width: 100%;" placeholder="From">
+            </div>
+            <div class="inner_div">
+                <button type="submit">Save</button>
+            </div>
+		</form>
+	</div>
+</div>
+{%endblock section%}

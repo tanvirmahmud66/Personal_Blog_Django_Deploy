@@ -1,0 +1,25 @@
+{%extends 'layout.html'%}
+{%load static%}
+{% load humanize %}
+{%block title%}Edit Profile Picture | Personal Blog{%endblock title%}
+{%block link%} 
+<link rel="stylesheet" href="{%static 'edit_profile.css'%}"/>
+{%endblock link%}
+{%block navImg%}
+    {%if profile.profilePic%}
+        <img src="{{profile.profilePic.url}}" alt="Profile Pic" width="30">
+    {%endif%}
+{%endblock navImg%}
+{%block section%}
+<div class="wrapper">
+	<div class="card">
+		<h2>Edit Profile Picture</h2>
+		<form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="file" name="pp" id="pp"/>
+            <input type="submit" value="Save"/>
+            <a style="text-align: center; text-decoration: none;" class="green-btn" href="{{request.META.HTTP_REFERER}}">Back</a>
+		</form>
+	</div>
+</div>       
+{%endblock section%}

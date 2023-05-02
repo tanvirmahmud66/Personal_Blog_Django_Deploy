@@ -1,0 +1,78 @@
+
+
+.post_section{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.post{
+    width: 100%;
+    padding: 20px;
+    background: #0F2333;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.warning{
+    width: 100%;
+    height: 70px;
+    border: 2px solid red;
+    color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.post_view h3{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+.date_time{
+    margin: 3px 0 15px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.date_time p{
+    color: rgb(174, 174, 174);   
+    font-size:.8rem;
+}
+.post_body p{
+    font-size: 1.2rem;
+    color: rgb(211, 211, 211);
+}
+.post_view .button_group{
+    width: 27%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post_view .delete_button{
+    margin-top: 10px;
+    text-decoration: none;
+	background-color: #e93434;
+	color: #fff;
+    border: none;
+	border-radius: 5px;
+	padding: 6px 10px;
+	cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.post_view .edit_button{
+    margin-top: 10px;
+    text-decoration: none;
+    border: 1px solid #00b894;
+	background-color: #00b894;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+    font-weight: 500;
+}

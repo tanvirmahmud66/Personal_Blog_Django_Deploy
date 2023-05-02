@@ -1,0 +1,53 @@
+{%extends 'layout.html'%}
+{%load static%}
+{% load humanize %}
+{%block title%}Edit Profile | Personal Blog{%endblock title%}
+{%block link%} 
+<link rel="stylesheet" href="{%static 'edit_profile.css'%}"/>
+{%endblock link%}
+{%block navImg%}
+    {%if profile.profilePic%}
+        <img src="{{profile.profilePic.url}}" alt="Profile Pic" width="30">
+    {%endif%}
+{%endblock navImg%}
+{%block section%}
+<div class="wrapper">
+	<div class="card">
+		<h2>Edit Profile</h2>
+		<form method="POST">
+            {%csrf_token%}
+            <div class="inner_div">
+                <input type="text" id="first_name" name="first_name" style="width: 80%;" value="{{user.first_name}}">
+                <input type="text" id="last_name" name="last_name" style="width: 80%;" value="{{user.last_name}}">
+            </div>
+			<div class="inner_div">
+			    <input type="text" id="workplace" name="workplace" style="width: 80%;" value="{{profile.workplace}}">
+			    <input type="text" id="profession" name="profession" style="width: 80%;" value="{{profile.profession}}">
+            </div>
+            <div class="inner_div">
+                <select id="gender" name="gender" style="width: 80%;" >
+                    <option value="{{profile.gender}}" disabled selected>{{profile.gender}}</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <select id="relationship" name="relationship" style="width: 80%;" >
+                    <option value="{{profile.relationStatus}}" disabled selected>{{profile.relationStatus}}</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+			
+			<textarea id="bio" name="bio" style="width: 98%; height: 100px;">{{profile.bio}}</textarea>
+            <div class="inner_div">
+                <input type="text" id="district" name="district" style="width: 100%;" value="{{profile.area}}">
+            </div>
+            <div class="inner_div">
+                <button type="submit">Save</button>
+            </div>
+		</form>
+	</div>
+</div>       
+{%endblock section%}

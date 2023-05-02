@@ -1,0 +1,49 @@
+.signIn-green-btn {
+	background-color: #00b894;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+    margin-top: 1.8rem;
+	cursor: pointer;
+    font-weight: 500;
+}
+
+.signin-card {
+	background-color: #072432;
+	color: #fff;
+	padding: 20px;
+	width: 400px;
+	margin: 50px auto;
+	border-radius: 5px;
+}
+
+.signin-card h2 {
+	margin-top: 0;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-top: 10px;
+}
+
+input {
+	padding: 10px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: none;
+}
+
+p {
+	margin-top: 20px;
+	text-align: center;
+}
+
+a {
+	color: #00b894;
+	text-decoration: none;
+}

@@ -1,0 +1,21 @@
+{%extends 'layout.html'%}
+{%load static%}
+{% load humanize %}
+{%block title%}Home | Personal Blog{%endblock title%}
+{%block link%} 
+<link rel="stylesheet" href="{%static 'notification.css'%}"/>
+{%endblock link%}
+
+{%block section%}
+    <div class="wrapper">
+        <h3 class="headline">Notification</h3>
+        {%if messages%}
+            {%for message in messages%}
+                <p>{{message}}</p>
+            {%endfor%}
+            {%if verified%}
+                <a href="{%url 'signin'%}">Sign-In</a>
+            {%endif%}
+        {%endif%}
+    </div>
+{%endblock section%}

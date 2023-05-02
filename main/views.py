@@ -153,7 +153,7 @@ def logout_page(request):
 # -------------------------------------------------------------------home
 @login_required(login_url='signin')
 def home(request):
-    profile = Profile.objects.get(userId=request.user.id)
+    profile = Profile.objects.get(user=request.user)
     notification = False
     if profile.bio is None or profile.workplace is None or profile.profession is None or profile.gender is None or profile.relationStatus is None or profile.area is None:
         notification = True
